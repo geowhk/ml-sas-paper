@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "dgp": 3,
+  "replication_id": 91,
+  "permutations": 99999,
+  "elapsed_seconds": 1651.97,
+  "comparison": "All metric columns and both methods match v6 with absolute tolerance 1e-12",
+  "scope": "One complete new replication; not the complete 300-dataset batch"
+}

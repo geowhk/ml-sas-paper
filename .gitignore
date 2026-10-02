@@ -1,0 +1,11 @@
+runs/
+.venv/
+.Rproj.user/
+.Rhistory
+.RData
+renv/library/
+renv/staging/
+__pycache__/
+.DS_Store
+renv/bootstrap/
+renv/sandbox/

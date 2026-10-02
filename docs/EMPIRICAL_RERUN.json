@@ -1,0 +1,40 @@
+{
+  "status": "PASS",
+  "scope": "package-sourced inputs, fresh forests and ablations, global 99999 and conditional local 99999 permutations; all 8 final CSVs compared",
+  "workers": 1,
+  "elapsed_seconds": 865.0366897910135,
+  "comparisons": {
+    "classification_summary.csv": {
+      "rows": 6,
+      "max_absolute_difference": 0
+    },
+    "continuous_vs_mixed_local.csv": {
+      "rows": 337,
+      "max_absolute_difference": 0
+    },
+    "global_mlsas.csv": {
+      "rows": 2,
+      "max_absolute_difference": 0
+    },
+    "local_mlsas_continuous.csv": {
+      "rows": 337,
+      "max_absolute_difference": 0
+    },
+    "local_mlsas_mixed.csv": {
+      "rows": 337,
+      "max_absolute_difference": 0
+    },
+    "total_vs_conditional_local.csv": {
+      "rows": 674,
+      "max_absolute_difference": 0
+    },
+    "total_vs_conditional_summary.csv": {
+      "rows": 2,
+      "max_absolute_difference": 0
+    },
+    "total_vs_conditional_transitions.csv": {
+      "rows": 10,
+      "max_absolute_difference": 0
+    }
+  }
+}

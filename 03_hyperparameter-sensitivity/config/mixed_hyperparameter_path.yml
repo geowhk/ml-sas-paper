@@ -1,0 +1,27 @@
+dgp_id: dgp4.3
+variables:
+  - x1
+  - x2
+  - cat1
+output_dir: 03_hyperparameter-sensitivity/runs/mixed_hyperparameter_path
+seed: 20260708
+condition_workers: 24
+tree_workers: 1
+
+proximity_types:
+  - path
+ntree:
+  - 25
+  - 50
+  - 100
+  - 250
+  - 500
+mtry:
+  - 1
+  - 2
+  - 3
+nodesize:
+  - 1
+  - 5
+  - 10
+replications: 100

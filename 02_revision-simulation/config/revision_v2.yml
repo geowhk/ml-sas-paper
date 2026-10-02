@@ -1,0 +1,30 @@
+dgp_ids:
+  - dgp1
+  - dgp2
+  - dgp3.1
+  - dgp4.3
+input_dir: 02_revision-simulation/sim_dgp
+output_root: 02_revision-simulation/runs/revision_v2/production
+seed: 123
+rf_ntree: 100
+rf_mtry: 1
+rf_nodesize: 1
+perm_nsim: 99999
+workers: 24
+alpha: 0.05
+mlsas_method: permute_cond
+mlsas_alternative: greater
+multigeary_alternative: less
+# spdep API: "greater" tests positive spatial autocorrelation (small local C).
+local_geary_alternative: greater
+moran_alternative: two.sided
+require_moran_cluster_direction: true
+getis_ord_inference: permutation
+getis_ord_alternative: two.sided
+style: W
+diag_zero: true
+queen: true
+run_univariate_lisa: true
+save_similarity_matrix: false
+save_diagnostic_figures: true
+run_tag: section4_v2

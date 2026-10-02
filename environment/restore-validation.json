@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "scope": "isolated R library restored from network/source/cache, without using globally installed analysis packages",
+  "R": "4.5.2",
+  "platform": "macOS arm64",
+  "packages_in_isolated_library": 169,
+  "versions_match_lockfile": true,
+  "native_build_notes": "See docs/INSTALL.md. Compiler, Fortran, gettext and locally built udunits required; not a clean operating-system install."
+}

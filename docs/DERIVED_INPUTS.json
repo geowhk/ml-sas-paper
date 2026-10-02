@@ -1,0 +1,12 @@
+{
+  "reference/repeated_local_evidence.csv.gz": {
+    "method": "Export 600 saved local method-dataset CSVs with regenerated DGP attributes, then gzip with fixed timestamp; 240000 rows",
+    "exporter": "scripts/export_local_evidence.R",
+    "analysis": "scripts/analyze_appendix.py"
+  },
+  "reference/empirical_fingerprint.json": {
+    "method": "SHA-256 of R version-2 serialization of mixed attributes, geometry WKB, and adjacency; no original data redistributed",
+    "source": "05_empirical-study/runs/reduced-urbanity/reduced_3cont_urbanity_20260715T051413Z/objects/analysis_inputs.rds",
+    "source_sha256": "1bacc8b854d0fdd7969856606a6af1f477b44cbbcf2eb6396a4074b64567361e"
+  }
+}

@@ -1,0 +1,91 @@
+freeze_id: S4-REPEATED-PROFESSOR-DGP-v2
+status: validated_ready_for_production
+source:
+  file_name: DGP_generation.R
+  supplied_path: source_snapshot/DGP_generation.R
+  sha256: 8599bf88fca254343c62486b5840597b8c5a5933e71c0ffeeec484b83fe0e90c
+  authority: professor_original_dgp_script
+
+spatial_design:
+  lattice: hexagonal
+  n_rows: 20
+  n_cols: 20
+  n_cells: 400
+  cell_width: 1
+  neighborhood: queen
+  mlsas_weight_style: W
+  diag_zero: true
+
+dgp1:
+  repeated_production: false
+  reason: retained_as_fixed_realization_comparison
+  generator_supported: true
+
+dgp2:
+  replications: 100
+  generator_function: simulate_professor_dgp2
+  specifications:
+    path_continuous: [x1, x2, x3]
+    path_mixed: [x1, x2, x3, cat1]
+
+dgp3:
+  replications: 100
+  generator_function: simulate_professor_dgp3
+  methods:
+    local_geary: [x1, x2, x3]
+    path_continuous: [x1, x2, x3]
+
+dgp4:
+  replications: 100
+  generator_function: simulate_professor_dgp4
+  include_x3: false
+  methods:
+    local_geary: [x1, x2]
+    path_continuous: [x1, x2]
+    path_mixed: [x1, x2, cat1]
+    terminal_mixed: [x1, x2, cat1]
+
+inference:
+  rf_ntree: 100
+  rf_mtry: 1
+  rf_nodesize: 1
+  primary_proximity: path
+  mlsas_method: permute_cond
+  mlsas_alternative: greater
+  permutations: 99999
+  monte_carlo_pvalue: plus_one_upper_tail
+  p_adjust: BH
+  q: 0.05
+  require_observed_above_permutation_mean: true
+  multigeary_class: positive
+
+seeds:
+  dataset: 2000000 + 100000*dgp_number + replication_id
+  rf: 3000000 + 10000*dgp_number + 10*replication_id + method_code
+  permutation: 4000000 + 10000*dgp_number + 10*replication_id + method_code
+  bootstrap: 5200001
+  method_codes:
+    dgp2_path_continuous: 1
+    dgp2_path_mixed: 2
+    local_geary: 3
+    path_continuous: 4
+    path_mixed: 5
+    terminal_mixed: 6
+
+primary_metrics:
+  "null": [prob_any_rejection, empirical_fdr_fwer, mean_rejections, cell_false_positive_proportion]
+  nonnull: [recall, background_fpr, conditional_precision, no_discovery_frequency]
+secondary_metrics: [f1, jaccard, discovery_count, rank_auc]
+
+uncertainty:
+  binomial_interval: clopper_pearson_95
+  paired_difference_interval: paired_nonparametric_bootstrap_percentile_95
+  bootstrap_resamples: 9999
+  analysis_unit: dataset
+
+production_gate:
+  require_original_source_sha256_match: true
+  require_exact_fixed_rds_reproduction: true
+  require_smoke_validation: true
+  overwrite_existing_runs: false
+  expected_metric_rows: 800

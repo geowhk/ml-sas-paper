@@ -1,0 +1,13 @@
+# Run from the repository root. Changes only this project's R environment.
+root<-normalizePath('.')
+if(!file.exists(file.path(root,'renv.lock')))stop('Run from the ML-SAS repository root')
+bootstrap<-file.path(root,'renv','bootstrap');dir.create(bootstrap,recursive=TRUE,showWarnings=FALSE)
+.libPaths(c(bootstrap,.libPaths()))
+if(!requireNamespace('renv',quietly=TRUE))install.packages('renv',lib=bootstrap,repos='https://cloud.r-project.org')
+Sys.setenv(RENV_CONFIG_CONSENT='TRUE')
+renv::load(project=root)
+prefix<-Sys.getenv('MLSAS_UDUNITS_PREFIX','')
+if(nzchar(prefix))options(configure.args=c(units=paste0('--with-udunits2-lib=',prefix,'/lib --with-udunits2-include=',prefix,'/include')))
+renv::restore(project=root,prompt=FALSE,retry=FALSE)
+renv::activate(project=root)
+cat('Project environment restored. Next: python3 -m venv .venv and install environment/requirements-figures.txt\n')

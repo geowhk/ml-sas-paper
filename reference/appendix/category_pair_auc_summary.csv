@@ -1,0 +1,17 @@
+method,target_category,background_category,mean_auc,mean_pairs
+local_geary,A,A,0.9758052624049105,3677.1
+local_geary,A,non-A,0.975684941218587,14713.5
+local_geary,non-A,A,0.9760051078633105,399.9
+local_geary,non-A,non-A,0.9759714191123967,1609.5
+path_continuous,A,A,0.9694999476259344,3677.1
+path_continuous,A,non-A,0.9678423571203144,14713.5
+path_continuous,non-A,A,0.9710880090327201,399.9
+path_continuous,non-A,non-A,0.9700904383720347,1609.5
+path_mixed,A,A,0.9952098514828523,3677.1
+path_mixed,A,non-A,0.9834509071691738,14713.5
+path_mixed,non-A,A,0.6376950754847954,399.9
+path_mixed,non-A,non-A,0.3967195616464993,1609.5
+terminal_mixed,A,A,0.9951569234753288,3677.1
+terminal_mixed,A,non-A,0.9810153041980396,14713.5
+terminal_mixed,non-A,A,0.3835310023964664,399.9
+terminal_mixed,non-A,non-A,0.18987320957557358,1609.5

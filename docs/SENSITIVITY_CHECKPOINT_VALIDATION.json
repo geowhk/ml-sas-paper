@@ -1,0 +1,6 @@
+{
+  "status": "PASS",
+  "test_scope": "Four tiny conditions, 1 tree each; infrastructure test, not a reduced substitute for the paper run",
+  "checkpoints_reused_without_modification": 4,
+  "changed_configuration_rejected": true
+}

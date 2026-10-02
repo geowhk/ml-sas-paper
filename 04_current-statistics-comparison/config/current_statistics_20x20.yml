@@ -1,0 +1,13 @@
+dgp_file: 02_revision-simulation/sim_dgp/sim_dgp4.3.rds
+output_dir: 04_current-statistics-comparison/runs/revision_v2
+
+ntree: 25
+mtry: 1
+nodesize: 1
+tree_workers: 24
+permutations: 1000
+
+master_seed: 20260713
+continuous_urf_seed: 20260714
+categorical_urf_seed: 20260715
+permutation_seed: 20260716

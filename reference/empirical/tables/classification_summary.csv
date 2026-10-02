@@ -1,0 +1,7 @@
+"specification","classification","municipalities"
+"Three continuous variables","Dissimilarity/outlier",1
+"Three continuous variables","Not significant",292
+"Three continuous variables","Similarity cluster",44
+"Three continuous variables + urbanity","Dissimilarity/outlier",1
+"Three continuous variables + urbanity","Not significant",281
+"Three continuous variables + urbanity","Similarity cluster",55
