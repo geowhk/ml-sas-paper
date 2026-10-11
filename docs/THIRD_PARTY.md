@@ -28,4 +28,4 @@ must not be substituted for each other. A fingerprint mismatch stops preparation
 
 Publication PDFs/TIFFs were used locally for visual comparison only and are not included.
 Manuscripts, responses to reviewers, internal history, credentials and private source
-snapshots are excluded. The paper's DOI and publication link will be added when available.
+snapshots are excluded. The published article is available at https://doi.org/10.1111/gean.70062.

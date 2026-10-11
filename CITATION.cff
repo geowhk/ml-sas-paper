@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite the accompanying paper."
+title: "ml-sas-paper: Paper reproduction code"
+type: software
+authors:
+  - family-names: Kim
+    given-names: Woohyung
+  - family-names: Lee
+    given-names: Sang-Il
+repository-code: "https://github.com/geowhk/ml-sas-paper"
+license: MIT
+preferred-citation:
+  type: article
+  title: "ML-SAS: A Machine-Learning-Based Spatial Autocorrelation Statistic for Mixed-Type Data"
+  authors:
+    - family-names: Kim
+      given-names: Woohyung
+    - family-names: Lee
+      given-names: Sang-Il
+  journal: Geographical Analysis
+  year: 2026
+  month: 10
+  volume: "58"
+  issue: "4"
+  article-number: e70062
+  doi: 10.1111/gean.70062
+  url: "https://doi.org/10.1111/gean.70062"

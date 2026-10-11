@@ -3,8 +3,9 @@
 Reproduction code for **ML-SAS: A Machine-Learning-Based Spatial Autocorrelation
 Statistic for Mixed-Type Data**, by **Woohyung Kim and Sang-Il Lee**.
 
-**Status:** accepted for publication in *Geographical Analysis*. The DOI and
-published article link will be added when available.
+Published online on 9 October 2026 in *Geographical Analysis*.
+
+Kim, W., & Lee, S.-I. (2026). ML-SAS: A Machine-Learning-Based Spatial Autocorrelation Statistic for Mixed-Type Data. *Geographical Analysis*, **58**(4), e70062. https://doi.org/10.1111/gean.70062
 
 ## About the paper
 
