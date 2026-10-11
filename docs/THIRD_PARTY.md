@@ -24,8 +24,10 @@ Source/version references:
 
 Older tmap map documentation names both CBS and Kadaster and requires attribution:
 https://r-tmap.github.io/tmap/reference/Shapes.html . Older and newer NLD_muni datasets
-must not be substituted for each other. A fingerprint mismatch stops preparation.
+must not be substituted for each other. A fingerprint mismatch stops input reconstruction.
 
-Publication PDFs/TIFFs were used locally for visual comparison only and are not included.
-Manuscripts, responses to reviewers, internal history, credentials and private source
-snapshots are excluded. The published article is available at https://doi.org/10.1111/gean.70062.
+The README includes regenerated PNGs corresponding to Figures 7 and 9, with
+attribution to the paper and the municipal data source. Their output paths are
+recorded in [figure documentation](figures/README.md). The publisher's PDF and
+production TIFFs are not bundled. The published article is available at
+https://doi.org/10.1111/gean.70062.

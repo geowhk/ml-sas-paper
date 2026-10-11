@@ -1,6 +1,6 @@
 # Runtime and resource guidance
 
-Times below distinguish original-run records from measurements in this preparation.
+Times below distinguish original-run records from repository-validation measurements from September–October 2026.
 They are not guaranteed completion times. CPU count, memory, operating system, package
 builds and contention affect elapsed time; increasing workers does not imply linear speedup.
 
@@ -58,7 +58,7 @@ command. Do not interpret it as an overall completion estimate.
 - Path/terminal sensitivity: 1,800 conditions and 180,000 trees in total.
 - Representative DGP and existing-statistics stages add further model and inference work.
 
-The complete sensitivity grids have not been timed again in this preparation. With one
+The complete sensitivity grids have not been timed again during repository validation. With one
 worker, budget potentially multiple days for the full command. No reliable total ETA is
 available yet. Each completed sensitivity condition is retained in `conditions/`; an
 interrupted condition is recomputed on resume. This can use substantial disk space because

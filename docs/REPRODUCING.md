@@ -19,6 +19,19 @@ It does not silently upgrade unavailable locked packages. Source installations n
 compilers and spatial system libraries; read [installation troubleshooting](INSTALL.md).
 First-time package download/compilation is separate from analysis runtime.
 
+### Quick checks with bundled inputs
+
+After restoring the R dependencies, run:
+
+```sh
+python3 tests/verify_pipeline.py
+```
+
+This checks saved-result replay, summary metrics, the DGP generator and the AUC
+orientation guard. It uses bundled inputs and does not require municipal data
+or run the full permutation experiments. It is a finite regression check, not
+full reproduction of the paper.
+
 ## 2. Reproduce saved results — the quick check
 
 ```sh
@@ -29,8 +42,9 @@ This regenerates final F1 summaries and bootstrap intervals, Appendix C diagnost
 and all ten figures. Empirical inputs come from the pinned `tmap::NLD_muni` dataset;
 their attributes, geometry and queen adjacency must match v6 fingerprints for all
 337 analytical units. Synthetic local evidence and derived empirical result tables
-are included; no manuscript, review history, original municipal RDS/GeoJSON or fonts
-are bundled. Saved mode does **not** refit models.
+are included. Municipal attributes and geometry are reconstructed from the pinned
+public package rather than a private input bundle. Fonts are not bundled. Saved
+mode does **not** refit models.
 
 ## 3. Recompute models, inference, tables and figures — slow
 

@@ -29,7 +29,7 @@ prefer the matching R-provided Fortran distribution. No user-wide Makevars was e
 A working C/C++/Fortran toolchain, CMake, and development libraries for GDAL, GEOS, PROJ,
 udunits2, curl, OpenSSL, XML, fonts and text rendering are needed if R packages build
 from source. Package names vary by distribution. Linux clean installation has not been
-validated in this preparation; do not interpret the macOS checks as Linux certification.
+validated for this repository; do not interpret the macOS checks as Linux certification.
 
 ## What setup does
 
@@ -37,9 +37,9 @@ validated in this preparation; do not interpret the macOS checks as Linux certif
 and activates it. It does not silently replace a pinned version with a newer package.
 See https://rstudio.github.io/renv/reference/restore.html .
 
-Before committing after setup, exclude local renv libraries, cache files, generated runs
-and virtual environments. The provided `.gitignore` covers these directories. The
-repository's publication inventory is the allowlist for the first upload.
+Local renv libraries, caches, generated runs and virtual environments are excluded
+from version control by `.gitignore`. `docs/PUBLISH_FILES.csv` records checksums
+for distributed files (excluding the inventory itself).
 
 If an input fingerprint, numeric comparison or package installation fails, retain the
 log and fix the cause. Do not loosen numerical tolerances or bypass fingerprints just

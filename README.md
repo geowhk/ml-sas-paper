@@ -19,12 +19,6 @@ and mixed-type data. The paper evaluates how this representation changes spatial
 pattern detection through controlled simulations and an application to Dutch
 municipalities.
 
-For applying the method to your own data, see the separate
-[ml-sas-r package](https://github.com/geowhk/ml-sas-r) and its
-[usage tutorial](https://geowhk.github.io/ml-sas-r/getting-started.html).
-This repository contains the paper's experiments, DGP code, selected reference
-results, and table and figure reproduction workflows.
-
 ## How ML-SAS works
 
 ```mermaid
@@ -56,6 +50,36 @@ A local similarity cluster can involve moderate values or a mixed attribute
 profile; it is not restricted to univariate High–High or Low–Low patterns.
 Local significance and its direction are assessed against the relevant
 permutation distribution, not simply by comparing a local value with 1.
+
+## Key results in figures
+
+### Figure 7: learning similarity from mixed-type attributes
+
+![Figure 7: two continuous inputs and a nominal input above local detection maps for Multivariate Local Geary, continuous ML-SAS, and mixed ML-SAS.](docs/figures/figure-07.png)
+
+The outlined region is the planted target in the nonlinear mixed-type simulation.
+The top row shows its inputs; the bottom row compares significant local detections.
+In this representative dataset, adding CAT1 expands the target area detected by
+ML-SAS. Across 100 datasets, recall increased from 0.395 to 0.618 and F1 from
+0.546 to 0.744, but uncommon target categories lost detections and overall rank
+AUC decreased. The map illustrates one realization; Table 4 and Appendix C
+report the repeated results and category-specific tradeoffs.
+
+### Figure 9: changes in Dutch municipal classifications
+
+![Figure 9: Dutch municipal map showing 38 similarity clusters retained, 17 gained, six lost, one outlier retained, and 275 nonsignificant municipalities retained after adding ordered urbanity.](docs/figures/figure-09.png)
+
+Adding ordered urbanity to the three continuous attributes changed **23 of 337**
+local classifications: 17 municipalities became similarity clusters and six
+ceased to be significant. One dissimilarity/outlier remained significant in both
+specifications. The map shows how the choice of attributes changes the spatial
+pattern represented by the fitted model.
+
+Both images were regenerated with this repository's saved-result workflow for
+Figures 7 and 9 of [Kim and Lee (2026)](https://doi.org/10.1111/gean.70062).
+Figure 9 uses municipal data and boundaries distributed through `tmap::NLD_muni`
+(Statistics Netherlands/CBS; see [data attribution](docs/THIRD_PARTY.md)).
+[Figure sources and reproduction paths](docs/figures/README.md).
 
 ## Main findings
 
@@ -94,6 +118,24 @@ in global values is not itself a test of the effect of urbanity.
 See the [global results](reference/empirical/tables/global_mlsas.csv) and
 [local specification comparison](reference/empirical/tables/continuous_vs_mixed_local.csv).
 
+### Scope of the evidence
+
+The study tests low-dimensional inputs (at most four attributes), one simulation
+lattice size, and one national municipal dataset. Results depend on input
+encoding, spatial weights, synthetic reference construction, and forest settings.
+The full pairwise similarity matrix requires storage that grows quadratically
+with the number of spatial units. Category imbalance also matters, as the DGP 4
+diagnostics show. Broader spatial supports and high-dimensional performance were
+not established by these experiments.
+
+## Package and reproduction repositories
+
+For applying the method to your own data, see the separate
+[ml-sas-r package](https://github.com/geowhk/ml-sas-r) and its
+[usage tutorial](https://geowhk.github.io/ml-sas-r/getting-started.html).
+This repository contains the paper's experiments, DGP code, selected reference
+results, and table and figure reproduction workflows.
+
 ## Navigate the research and its reproduction
 
 The simulation experiments use a **400-cell hexagonal lattice**. DGP 1 illustrates
@@ -115,16 +157,6 @@ The [reproduction guide](docs/REPRODUCING.md#outputs-and-paper-mapping) maps pap
 items to generated output files. The commands below provide a quick saved-result
 replay and a full recomputation route.
 
-### Scope of the evidence
-
-The study tests low-dimensional inputs (at most four attributes), one simulation
-lattice size, and one national municipal dataset. Results depend on input
-encoding, spatial weights, synthetic reference construction, and forest settings.
-The full pairwise similarity matrix requires storage that grows quadratically
-with the number of spatial units. Category imbalance also matters, as the DGP 4
-diagnostics show. Broader spatial supports and high-dimensional performance were
-not established by these experiments.
-
 ## Getting started
 
 The checked environment uses **R 4.5.2 and Python 3.13**. R dependencies are pinned
@@ -136,7 +168,19 @@ checks do not cover this separate reproduction workflow.
 ```sh
 git clone https://github.com/geowhk/ml-sas-paper.git
 cd ml-sas-paper
+```
+
+**1. Quick checks using bundled inputs** (R dependencies required; no separate
+municipal data download or model fitting):
+
+```sh
 Rscript scripts/setup.R
+python3 tests/verify_pipeline.py
+```
+
+**2. Install figure-rendering dependencies** for saved-result reproduction:
+
+```sh
 python3 -m venv .venv
 .venv/bin/python -m pip install -r environment/requirements-figures.txt
 ```
@@ -146,7 +190,9 @@ See [installation requirements](docs/INSTALL.md) for compilers and spatial libra
 ## Reproduce the results
 
 **Quick check using saved results:** regenerates final summaries, Appendix C
-diagnostics and ten figures without refitting the models.
+diagnostics and ten figures without refitting the models. This uses bundled
+reference results and reconstructs municipal inputs from the pinned public
+`tmap::NLD_muni` dataset; no private input bundle is needed.
 
 ```sh
 .venv/bin/python scripts/reproduce.py --mode saved --out runs/saved
@@ -171,8 +217,7 @@ and mappings to the paper's tables and figures.
 
 Saved-result reproduction, the full empirical analysis and one repeated-simulation
 replication have been checked against the final v6 results. The entire 300-dataset
-simulation batch and complete sensitivity grids have **not** been rerun during
-this release preparation. See [validation scope](docs/RELEASE_STATUS.md).
+simulation batch and complete sensitivity grids have **not** been rerun as part of the documented repository validation. See [validation scope](docs/RELEASE_STATUS.md).
 
 ## Authors and license
 
